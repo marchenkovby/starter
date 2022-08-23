@@ -1,0 +1,26 @@
+| <?php include_once 'files/functions.php'; ?>
+block config
+include ../includes/mixins.pug
+include ../includes/components.pug
+
+doctype html
+html(lang='ru')
+  head
+    meta(charset='utf-8')
+    title= articleTitle
+    meta(name='viewport' content='width=device-width, initial-scale=1')
+    link(rel='stylesheet' href='/styles.css')
+    script(defer src='/scripts.js')
+  body
+    .page
+      .page__inner
+        +test4()
+        .nav
+        include ../components/main-header.pug
+
+        main.main-content.page__main-content
+          block content
+
+          include ../components/comments.pug
+
+        include ../components/main-footer.pug

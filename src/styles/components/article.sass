@@ -1,0 +1,180 @@
+.article
+
+  &__heading--level-1
+    font-size: $font-size-h1 - 4
+
+  &__heading--level-2
+    font-size:  $font-size-h2 - 4
+
+  &__heading--level-3
+    font-size:  $font-size-h3 - 4
+
+  &__heading--level-4
+    font-size:  $font-size-h4 - 4
+
+  @media (min-width: $screen-md)
+    &__heading--level-1
+      font-size: $font-size-h1
+
+    &__heading--level-2
+      font-size: $font-size-h2
+
+    &__heading--level-3
+      font-size: $font-size-h3
+
+    &__heading--level-4
+      font-size: $font-size-h4
+
+  &__heading--index-page
+    border-bottom: 2px solid #dadada
+
+  &__heading--step,
+  &__heading--faq
+    display: inline
+
+  &__list--ul
+    list-style-type: square
+
+  &__list--index-page
+    padding-left: 30px
+    margin-bottom: 30px
+
+  &__category
+    margin-bottom: 50px
+
+  &__content > &__steps
+    padding-left: 0
+    list-style-type: none
+    counter-reset: counter-step
+
+  &__content > &__steps > &__steps-item
+    margin-bottom: 50px
+
+  &__content > &__steps > &__steps-item:before
+    font-size: $font-size-h2 - 4
+    font-weight: bold
+    counter-increment: counter-step
+    content: "Шаг " counter(counter-step) ": "
+
+  @media (min-width: $screen-md)
+    &__content > &__steps > &__steps-item:before
+      font-size: $font-size-h2
+
+  &__steps > &__steps
+    padding-left: 30px
+
+  &__steps-item > &__steps > &__steps-item
+    margin-top: 16px
+    margin-bottom: 16px
+
+  &__faq-list
+    padding-left: 0
+    list-style-type: none
+    counter-reset: counter-faq
+  
+  &__faq-item:before
+    font-size: $font-size-h3 - 4
+    font-weight: bold
+    counter-increment: counter-faq
+    content: counter(counter-faq) ". "
+
+  @media (min-width: $screen-md)
+    &__faq-item:before
+      font-size: $font-size-h3
+
+  &__figure
+    text-align: center
+    width: calc(100vw - 40px)
+    margin-left: calc(-50vw + 50% + 20px)
+
+  &__image
+    max-width: 100%
+    height: auto
+
+  &__image-caption
+    font-size: 90%
+    color: #595959
+
+  //&__video
+
+  &__table-responsive
+    overflow-x: auto
+
+  &__table
+    width: 100%
+    margin-top: 15px
+    margin-bottom: 15px
+    border-collapse: collapse
+
+  &__table-row:hover
+    background-color: #eeeeee
+
+  &__table--no-hover &__table-row:hover
+    background-color: transparent
+
+  &__table-caption
+    margin-bottom: 8px
+    text-align: left
+    font-size: 90%
+    color: #595959
+
+  &__table-cell
+    padding: 8px
+    border: 1px solid #ddd
+
+  &__table-cell--heading
+    padding-top: 12px
+    padding-bottom: 12px
+    font-weight: bold
+    color: white
+    text-align: left
+    background-color: #4caf50
+    white-space: nowrap
+
+  &__toc
+    display: inline-block
+    margin-top: 15px
+    margin-bottom: 15px
+    padding: 5px 10px
+    border: 1px solid #ddd
+    background-color: #f8f9fa
+
+  &__note
+    margin: 15px 0
+    padding: 4px 12px
+    background-color: #ffffcc
+    border-left: 6px solid #ffeb3b
+
+  &__note--warning
+    background-color: #ffdddd
+    border-left: 6px solid #f44336
+
+  &__note--info
+    background-color: #e7f3fe
+    border-left: 6px solid #2196f3
+
+  &__link
+    @include link
+
+  &__link[target="_blank"]:after
+    //content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==)
+    //background: url('http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png)') no-repeat
+    //content: url(http://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png)
+    //margin-right: 5px
+    //content: " " url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAVklEQVR4Xn3PgQkAMQhDUXfqTu7kTtkpd5RA8AInfArtQ2iRXFWT2QedAfttj2FsPIOE1eCOlEuoWWjgzYaB/IkeGOrxXhqB+uA9Bfcm0lAZuh+YIeAD+cAqSz4kCMUAAAAASUVORK5CYII=)
+    //margin-right: 3px
+    //margin-left: 5px
+
+  &__link--new:after,
+  &__link--updated:after
+    position: absolute
+    padding-left: 4px
+    font-size: 12px
+
+  &__link--new:after
+    color: #ff0000
+    content: "Новое"
+
+  &__link--updated:after
+    color: #339900
+    content: "Обновлено"

@@ -1,0 +1,58 @@
+extends layouts/default.pug
+
+append config
+  - var articleTitle = 'Как проверить скорость интернета'
+  - var articleDesk = 'В статье я вам расскажу о том, как правильно проверить скорость интернета.'
+  - var articleUrl = '48'
+  - var articleImgDefaultName = '01.jpg'
+
+append content
+  article.article.main-content__article
+    header.article__header
+      h1.artilce__heading.article__heading--level-1= articleTitle
+      p.article__desk= articleDesk  
+    .article__content
+      blockquote.article__note
+        p.article__paragraph #[strong.article__strong Примечание.]
+        ul.article__list
+          li.article__list-item Подключитесь к модему напрямую без дополнительного оборудования.
+          li.article__list-item Закройте все активные программы, в том числе антивирус, остановите закачки. Обязательно убедитесь, что программы действительно закрыты, так как иногда они сворачиваются в область уведомлений, а не закрываются.
+          li.article__list-item Отключите от модема другие устройства, которые могут потреблять интернет-трафик.
+          li.article__list-item Используйте браузер без запущенных онлайн-игр, трансляций и других "тяжелых вкладок". Для проверки скорости используйте популярные браузеры: Chrome, Firefox, Opera, Safari или Microsoft Edge.
+      ol.article__steps
+        li.article__steps-item
+          h2.article__heading.article__heading--level-2.article__heading--step Соедините модем с вашим компьютером
+          p.article__paragraph Используйте сетевой кабель, соединив им порт 1 на модеме и порт на сетевой карте вашего компьютера.
+          figure.article__figure
+            img.article__image(src=articleImgPath + '02.jpg' alt='Проводное соединение через сетевой кабель модема ZTE ZXHN F609 и ноутбука')
+        li.article__steps-item
+          h2.article__heading.article__heading--level-2.article__heading--step Зайдите на сайт для проверки скорости
+          ol.article__steps
+            li.article__steps-item Зайдите на сайт #[strong.article__strong #[a.article__link(href='https://speedtest.net' target='_blank') https://speedtest.net]].
+            li.article__steps-item Нажмите на кнопку #[strong.article__strong Начать] или #[strong.article__strong GO].
+          figure.article__figure
+            img.article__image(src=articleImgPath + '03.png' alt='Окно браузера с кнопкой для начала проверки скорости')
+        li.article__steps-item
+          h2.article__heading.article__heading--level-2.article__heading--step Проверьте скорость интернета
+          figure.article__figure
+            img.article__image(src=articleImgPath + '04.png' alt='Результаты проверки скорости в браузере на сайте speedtest.net')
+          p.article__paragraph В данном примере имеем пакет услуг ЯСНА 100, согласно тарифного плана скорость скачивания должна быть 100 Мбит/с, скорость загрузки 50 Мбит/с. По результатам тестирования скорость соответствует заявленной.
+          p.article__paragraph Таблица с параметрами качества услуг от Белтелекома находится здесь #[a.article__link(href='http://byfly.by/client/poryadok' target='_blank') http://byfly.by/client/poryadok] (раздел 1.5.1).
+          .article__table-responsive
+              table.article__table
+                thead.article__table-head
+                  tr.article__table-row
+                    th.article__table-cell.article__table-cell--heading Параметр
+                    th.article__table-cell.article__table-cell--heading Описание
+                tbody.artilce__table-body
+                  tr.article__table-row
+                    td.article__table-cell Скачать
+                    td.article__table-cell Скорость входящего соединения, влияет на то, как быстро открываются сайты и скачиваются файлы.
+                  tr.article__table-row
+                    td.article__table-cell Загрузить
+                    td.article__table-cell Скорость исходящего соединения, используется при передаче данных с вашего компьютера в сеть, например, при отправке писем или загрузке фотографий в облако.
+                  tr.article__table-row
+                    td.article__table-cell Ping
+                    td.article__table-cell Задержка сигнала, количество времени за которое сигнал проходит от вашего устройства до сервера. Чем меньше, тем лучше.
+          blockquote.article__note
+            p.article__paragraph #[strong.article__strong Примечание.] Интернет-провайдеры измеряют скорость интернет-соединения в мегабитах (Мбит/с или Мб/с). Браузеры, торрент-клиенты и другие программы измеряют скорость в мегабайтах (Мбайт/с или МБ/с). 1 мегабайт = 8 мегабит.

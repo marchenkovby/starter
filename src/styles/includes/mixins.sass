@@ -1,0 +1,16 @@
+@mixin link
+  &:link
+    text-decoration: none
+    color: $color-link
+    border-bottom: 1px solid rgba(0, 115, 255, 0.4)
+    cursor: pointer
+
+  &:visited
+    color: $color-link-visited
+
+  &:hover
+    color: $color-link-hover
+    border-color: rgba(255, 65, 105, 0.4)
+
+  &:active
+    color: $color-link-active

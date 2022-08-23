@@ -1,0 +1,16 @@
+.breadcrumbs
+  background-color: #eee
+
+  &__list
+    padding: 10px 16px
+    list-style: none
+
+  &__item
+    display: inline
+
+  &__item+&__item:before
+    padding: 8px
+    content: "/\00a0"
+
+  &__link
+    //@include link

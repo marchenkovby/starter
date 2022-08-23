@@ -1,0 +1,5 @@
+mixin image(src, alt, caption)
+  figure.article__figure
+    | <img class="article__image" src="/images/#{src}" <?= get_image_size('images/#{src}'); ?> alt="#{alt}">
+    if (caption == true )
+      figcaption.article__image-caption=alt
