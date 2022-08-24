@@ -34,19 +34,6 @@ function buildComponents(type) {
       mainFileComponents += `include ../../components/${componentName}/${componentName}\n`;
     });
   }
-  if (type == 'scripts' || type == 'styles') {
-    fileExtension = type == 'scripts' ? 'js' : 'sass';
-    let allComponentsFromFolders = getDirectories(fileExtension);
-    listClassesFromPage.forEach(function(componentName ) {
-      if (allComponentsFromFolders.indexOf(componentName) == -1) return;
-      if (type == 'scripts') {
-        mainFileComponents += `import '../../components/${componentName}/${componentName}.${fileExtension}'\n`;
-      }
-      if (type == 'styles') {
-        mainFileComponents += `@import '../../components/${componentName}/${componentName}'\n`;
-      }
-    });
-  }
   fs.writeFileSync(`${pathBuildFolder}/components.${fileExtension}`, mainFileComponents);
   listClassesFromPage = [];
 }
@@ -84,7 +71,6 @@ function importBlocks(typeTask) {
     // Создаю общий файл для используемых компонентов определенного расширения
     fs.writeFileSync(`${app.path.srcFolder}/${typeTask}/includes/components.${extensionFileComponent }`, mainFileComponent);
   });
-
   // if (getDifference(list, importsList[extension]).length) {
   //   let require = "/* blocks that used */\n\n";
   //   list.forEach(el => {

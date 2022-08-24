@@ -20,13 +20,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Это содержмое 
 
 /***/ }),
 
-/***/ "./src/components/test3/test3.js":
-/*!***************************************!*\
-  !*** ./src/components/test3/test3.js ***!
-  \***************************************/
+/***/ "./src/components/test/test.js":
+/*!*************************************!*\
+  !*** ./src/components/test/test.js ***!
+  \*************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('From component test3!');\r\n\n\n//# sourceURL=webpack://starter/./src/components/test3/test3.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('From component test');\r\n\n\n//# sourceURL=webpack://starter/./src/components/test/test.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('From component t
   \********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_main_header_main_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/main-header/main-header.js */ \"./src/components/main-header/main-header.js\");\n/* harmony import */ var _components_test3_test3_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/test3/test3.js */ \"./src/components/test3/test3.js\");\n// Этот файл генерируется автоматически.\n\n\n\n\n\n//# sourceURL=webpack://starter/./src/scripts/includes/components.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_main_header_main_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/main-header/main-header.js */ \"./src/components/main-header/main-header.js\");\n/* harmony import */ var _components_test_test_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/test/test.js */ \"./src/components/test/test.js\");\n// Этот файл генерируется автоматически.\n\n\n\n\n\n//# sourceURL=webpack://starter/./src/scripts/includes/components.js?");
 
 /***/ }),
 
