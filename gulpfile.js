@@ -1,8 +1,8 @@
 import gulp from 'gulp';
 
-import { path } from './gulp/config/path.js';
+import { path } from './gulp/core/path.js';
 
-import { plugins } from './gulp/config/plugins.js';
+import { plugins } from './gulp/core/plugins.js';
 
 global.app = {
   isBuild: process.argv.includes('--build'),

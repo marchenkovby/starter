@@ -1,5 +1,5 @@
 import imagemin from 'gulp-imagemin';
-import { notifyImagesConfig, imageminConfig } from '../config/config.js';
+import { notifyImagesConfig, imageminConfig } from '../core/configs.js';
 
 export const compressImages = () => {
   return app.gulp.src(app.path.images.src, { sourcemaps: true })

@@ -5,8 +5,8 @@ import cleanCss from 'gulp-clean-css';
 import autoprefixer from 'gulp-autoprefixer';
 import sassGlob from 'gulp-sass-glob';
 import cssbeautify from 'gulp-cssbeautify';
-import { buildComponents, importBlocks } from '../config/functions.js';
-import { notifyStylesConfig, autoprefixerConfig } from '../config/config.js';
+import { buildComponents, importBlocks } from '../core/functions.js';
+import { notifyStylesConfig, autoprefixerConfig } from '../core/configs.js';
 
 const sass = gulpSass(dartSass);
 

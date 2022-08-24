@@ -1,6 +1,6 @@
 import webpackStream from 'webpack-stream';
-import { buildComponents, importBlocks } from '../config/functions.js';
-import { notifyScriptsConfig, webpackStreamConfig } from '../config/config.js';
+import { buildComponents, importBlocks } from '../core/functions.js';
+import { notifyScriptsConfig, webpackStreamConfig } from '../core/configs.js';
 
 export const buildScripts = () => {
   //buildComponents('scripts');

@@ -52,22 +52,31 @@ function buildComponents(type) {
 }
 export { buildComponents }
 
-
 function importBlocks(type) {
+
+  // Задаю пустой массив
   let list = [];
-  let ext = type == 'scripts' ? 'js' : 'sass';
-  const allBlocks = getDirectories(ext);
-  allBlocks.forEach(block => {
-    let url = `../../components/${block}/${block}`;
-    if (listClassesFromHTMLpage.includes(block) && !list.includes(url)) list.push(url);
+  
+  // Присваиваю переменной значение js, 
+  // если это тип scripts, иначе значение sass
+  let extension = type == 'scripts' ? 'js' : 'sass';
+
+  // Присваиваю переменной список путей с найденными компонентами
+  // Пример: ../components/menu/menu
+  const allComponents = getDirectories(extension);
+
+  // Для найденного класса 
+  allComponents.forEach(component => {
+    let url = `../../components/${component}/${component}`;
+    if (listClassesFromHTMLpage.includes(component) && !list.includes(url)) list.push(url);
   });
-  if (getDifference(list, importsList[ext]).length) {
+  if (getDifference(list, importsList[extension]).length) {
     let require = "/* blocks that used */\n\n";
     list.forEach(el => {
-      require += ext == "js" ? `import '${el}.js';\n` : `@import '${el}'\n`;
+      require += extension == "js" ? `import '${el}.js';\n` : `@import '${el}'\n`;
     });
-    fs.writeFileSync(`./src/${type}/includes/components.${ext}`, require);
-    importsList[ext] = list;
+    fs.writeFileSync(`./src/${type}/includes/components.${extension}`, require);
+    importsList[extension] = list;
   }
 }
 export { importBlocks }

@@ -3,8 +3,8 @@ import pug from 'gulp-pug';
 import rename from 'gulp-rename';
 import htmlmin from 'gulp-htmlmin';
 import through2 from 'through2';
-import { getClassesToComponentList, buildComponents } from '../config/functions.js';
-import { notifyPagesConfig, pugConfig, versionNumberConfig, htmlminConfig, renameConfig } from '../config/config.js';
+import { getClassesToComponentList, buildComponents } from '../core/functions.js';
+import { notifyPagesConfig, pugConfig, versionNumberConfig, htmlminConfig, renameConfig } from '../core/configs.js';
 
 export const buildPages = () => {
   buildComponents('pages');
