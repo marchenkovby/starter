@@ -1,9 +1,9 @@
 import fs from 'fs';
 import getClassesFromHtml from 'get-classes-from-html';
 
-let listClassesFromHTMLpage = [];
+let listClassesFromPage = [];
 let importsList = {sass: [], js: []};
-let doNotEditMsg = 'Этот файл генерируется автоматически.\n\n';
+let messageMainFileComponent = 'Этот файл генерируется автоматически.\n\n';
 
 function getClassesToComponentList(file, enc, cb) {
   if (file.isNull()) {
@@ -13,14 +13,14 @@ function getClassesToComponentList(file, enc, cb) {
   const content = file.contents.toString();
   let classes = getClassesFromHtml(content);
   for (let el of classes) {
-    if (/(__|--)/.test(el) || listClassesFromHTMLpage.includes(el)) continue;
-    listClassesFromHTMLpage.push(el);
+    if (/(__|--)/.test(el) || listClassesFromPage.includes(el)) continue;
+    listClassesFromPage.push(el);
   }
-  console.log("---------- Used HTML components: " + listClassesFromHTMLpage.join(", "));
+  console.log("---------- Used HTML components: " + listClassesFromPage.join(", "));
   file.contents = new Buffer.from(content);
   this.push(file);
   cb();
-  return listClassesFromHTMLpage;
+  return listClassesFromPage;
 }
 export { getClassesToComponentList }
 
@@ -37,7 +37,7 @@ function buildComponents(type) {
   if (type == 'scripts' || type == 'styles') {
     fileExtension = type == 'scripts' ? 'js' : 'sass';
     let allComponentsFromFolders = getDirectories(fileExtension);
-    listClassesFromHTMLpage.forEach(function(componentName ) {
+    listClassesFromPage.forEach(function(componentName ) {
       if (allComponentsFromFolders.indexOf(componentName) == -1) return;
       if (type == 'scripts') {
         mainFileComponents += `import '../../components/${componentName}/${componentName}.${fileExtension}'\n`;
@@ -48,28 +48,44 @@ function buildComponents(type) {
     });
   }
   fs.writeFileSync(`${pathBuildFolder}/components.${fileExtension}`, mainFileComponents);
-  listClassesFromHTMLpage = [];
+  listClassesFromPage = [];
 }
 export { buildComponents }
 
-function importBlocks(type) {
+function importBlocks(typeTask) {
 
-  // Задаю пустой массив
+  // Задаю пустой список 
   let list = [];
+
+  // Сохраняю сообщение в общий файл для используемых компонентов
+  let mainFileComponent = messageMainFileComponent;
   
-  // Присваиваю переменной значение js, 
-  // если это тип scripts, иначе значение sass
-  let extension = type == 'scripts' ? 'js' : 'sass';
+  // Если данная функция вызывается для задачи scripts, то использую расширение js, иначе sass
+  let extensionFileComponent = typeTask == 'scripts' ? 'js' : 'sass';
 
-  // Присваиваю переменной список путей с найденными компонентами
-  // Пример: ../components/menu/menu
-  const allComponents = getDirectories(extension);
+  // Список классов компонентов
+  // Пример: page, article, footer и др.
+  const listClassesComponents = getDirectories(extensionFileComponent);
 
-  // Для найденного класса 
-  allComponents.forEach(component => {
-    let url = `../../components/${component}/${component}`;
-    if (listClassesFromHTMLpage.includes(component) && !list.includes(url)) list.push(url);
+  // Проверяю есть ли у класса, найденного на странице, соотвествующий ему класс компонента
+  listClassesComponents.forEach(classComponent => {
+
+    // Присваиваю переменной полный путь до компонента
+    let url = `../../components/${classComponent}/${classComponent}`;
+    
+    // Если в списке классов, найденных на странице, есть класс компонента, 
+    // то полный путь этого компонента записываю в общий файл компонентов
+    if (listClassesFromPage.includes(classComponent)) {
+
+      // Сохраняю пути всех используемых компонентов
+      mainFileComponents += extensionFileComponent  == 'js' ? `import '${url}.js';\n` : `@import '${url}'\n`;
+    }
+
+    // Создаю общий файл компонентов для определенного расширения
+    fs.writeFileSync(`${app.path.srcFolder}/${typeTask}/includes/components.${extensionFileComponent }`, mainFileComponents);
+
   });
+
   if (getDifference(list, importsList[extension]).length) {
     let require = "/* blocks that used */\n\n";
     list.forEach(el => {
