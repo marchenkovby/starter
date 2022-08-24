@@ -25,7 +25,7 @@ function getClassesToComponentList(file, enc, cb) {
 export { getClassesToComponentList }
 
 function buildComponents(type) {
-  let mainFileComponents = '// ' + doNotEditMsg;
+  let mainFileComponents = '// ' + messageMainFileComponent;
   let fileExtension = 'pug';
   let pathBuildFolder = `${app.path.srcFolder}/${type}/includes`;
   if (type == 'pages') {
@@ -58,7 +58,7 @@ function importBlocks(typeTask) {
   let list = [];
 
   // Сохраняю сообщение в общий файл для используемых компонентов
-  let mainFileComponent = messageMainFileComponent;
+  let mainFileComponent = '// ' + messageMainFileComponent;
   
   // Если данная функция вызывается для задачи scripts, то использую расширение js, иначе sass
   let extensionFileComponent = typeTask == 'scripts' ? 'js' : 'sass';
@@ -71,28 +71,28 @@ function importBlocks(typeTask) {
   listClassesComponents.forEach(classComponent => {
 
     // Присваиваю переменной полный путь до компонента
-    let url = `../../components/${classComponent}/${classComponent}`;
+    let pathsComponents = `../../components/${classComponent}/${classComponent}`;
     
     // Если в списке классов, найденных на странице, есть класс компонента, 
     // то полный путь этого компонента записываю в общий файл компонентов
     if (listClassesFromPage.includes(classComponent)) {
 
       // Сохраняю пути для используемых компонентов
-      mainFileComponents += extensionFileComponent  == 'js' ? `import '${url}.js';\n` : `@import '${url}'\n`;
+      mainFileComponent += extensionFileComponent  == 'js' ? `import '${pathsComponents}.js';\n` : `@import '${pathsComponents}'\n`;
     }
 
     // Создаю общий файл для используемых компонентов определенного расширения
-    fs.writeFileSync(`${app.path.srcFolder}/${typeTask}/includes/components.${extensionFileComponent }`, mainFileComponents);
+    fs.writeFileSync(`${app.path.srcFolder}/${typeTask}/includes/components.${extensionFileComponent }`, mainFileComponent);
   });
 
-  if (getDifference(list, importsList[extension]).length) {
-    let require = "/* blocks that used */\n\n";
-    list.forEach(el => {
-      require += extension == "js" ? `import '${el}.js';\n` : `@import '${el}'\n`;
-    });
-    fs.writeFileSync(`./src/${type}/includes/components.${extension}`, require);
-    importsList[extension] = list;
-  }
+  // if (getDifference(list, importsList[extension]).length) {
+  //   let require = "/* blocks that used */\n\n";
+  //   list.forEach(el => {
+  //     require += extension == "js" ? `import '${el}.js';\n` : `@import '${el}'\n`;
+  //   });
+  //   fs.writeFileSync(`./src/${type}/includes/components.${extension}`, require);
+  //   importsList[extension] = list;
+  // }
 }
 export { importBlocks }
 

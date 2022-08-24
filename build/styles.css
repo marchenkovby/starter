@@ -1,4 +1,3 @@
-/* blocks that used */
 .main-header
 {
     content: 'main-header1';
@@ -14,7 +13,7 @@
     content: 'page';
 }
 
-.test4
+.test3
 {
-    content: 'Hello, i am from test4';
+    content: 'From component test3!!';
 }

@@ -20,13 +20,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n// Это содержмое 
 
 /***/ }),
 
-/***/ "./src/components/test4/test4.js":
+/***/ "./src/components/test3/test3.js":
 /*!***************************************!*\
-  !*** ./src/components/test4/test4.js ***!
+  !*** ./src/components/test3/test3.js ***!
   \***************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('test4');\n\n\n//# sourceURL=webpack://starter/./src/components/test4/test4.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('From component test3!');\r\n\n\n//# sourceURL=webpack://starter/./src/components/test3/test3.js?");
 
 /***/ }),
 
@@ -36,7 +36,7 @@ eval("__webpack_require__.r(__webpack_exports__);\nconsole.log('test4');\n\n\n//
   \********************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_main_header_main_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/main-header/main-header.js */ \"./src/components/main-header/main-header.js\");\n/* harmony import */ var _components_test4_test4_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/test4/test4.js */ \"./src/components/test4/test4.js\");\n/* blocks that used */\n\n\n\n\n\n//# sourceURL=webpack://starter/./src/scripts/includes/components.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_main_header_main_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/main-header/main-header.js */ \"./src/components/main-header/main-header.js\");\n/* harmony import */ var _components_test3_test3_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/test3/test3.js */ \"./src/components/test3/test3.js\");\n// Этот файл генерируется автоматически.\n\n\n\n\n\n//# sourceURL=webpack://starter/./src/scripts/includes/components.js?");
 
 /***/ }),
 
@@ -46,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
   \********************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _includes_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/components.js */ \"./src/scripts/includes/components.js\");\n\n\nconsole.log('Hello, world!');\n\n\n//# sourceURL=webpack://starter/./src/scripts/scripts.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _includes_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./includes/components.js */ \"./src/scripts/includes/components.js\");\n\r\n\r\nconsole.log('Hello, world!');\r\n\n\n//# sourceURL=webpack://starter/./src/scripts/scripts.js?");
 
 /***/ })
 
