@@ -77,13 +77,12 @@ function importBlocks(typeTask) {
     // то полный путь этого компонента записываю в общий файл компонентов
     if (listClassesFromPage.includes(classComponent)) {
 
-      // Сохраняю пути всех используемых компонентов
+      // Сохраняю пути для используемых компонентов
       mainFileComponents += extensionFileComponent  == 'js' ? `import '${url}.js';\n` : `@import '${url}'\n`;
     }
 
-    // Создаю общий файл компонентов для определенного расширения
+    // Создаю общий файл для используемых компонентов определенного расширения
     fs.writeFileSync(`${app.path.srcFolder}/${typeTask}/includes/components.${extensionFileComponent }`, mainFileComponents);
-
   });
 
   if (getDifference(list, importsList[extension]).length) {
